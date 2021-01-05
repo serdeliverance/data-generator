@@ -5,7 +5,7 @@ import slick.jdbc.PostgresProfile.api._
 
 class UserTable(tag: Tag) extends Table[User](tag, "user") {
 
-  def id: Rep[Long]         = column[Long]("id", O.PrimaryKey, O.AutoInc)
+  def id: Rep[Option[Long]] = column[Option[Long]]("id", O.PrimaryKey, O.AutoInc)
   def username: Rep[String] = column[String]("username")
   def password: Rep[String] = column[String]("password")
   def email: Rep[String]    = column[String]("email")

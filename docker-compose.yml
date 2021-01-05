@@ -8,9 +8,10 @@ services:
       - "TZ=Europe/Amsterdam"
       - "POSTGRES_USER=root"
       - "POSTGRES_PASSWORD=root"
-      - "POSTGRES_DB=demodb"
     ports:
       - "45432:5432"
+    volumes:
+      - "./sql:/docker-entrypoint-initdb.d"
 
   dg-adminer:
     image: adminer

@@ -1,3 +1,3 @@
 package com.serdeliverance.domain
 
-case class User(id: Long, username: String, password: String, email: String)
+case class User(id: Option[Long], username: String, password: String, email: String)
