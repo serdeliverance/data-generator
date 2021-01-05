@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  dg-postgres:
+    image: postgres:latest
+    container_name: fpg-postgres
+    environment:
+      - "TZ=Europe/Amsterdam"
+      - "POSTGRES_USER=root"
+      - "POSTGRES_PASSWORD=root"
+      - "POSTGRES_DB=demodb"
+    ports:
+      - "45432:5432"
+
+  dg-adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8083:8080
+
+volumes:
+  ivy2:
+    driver_opts:
+      o: bind
+      type: none
+      device: $HOME/.ivy2
+  sbt:
+    driver_opts:
+      o: bind
+      type: none
+      device: $HOME/.sbt
