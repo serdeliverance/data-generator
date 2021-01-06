@@ -22,6 +22,6 @@ CREATE TABLE IF NOT EXISTS "transaction" (
   installments SMALLINT NOT NULL,
   card_type VARCHAR(255) NOT NULL,
   user_id VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NULL,
+  status  VARCHAR(255) NOT NULL,
   PRIMARY KEY(id)
 );

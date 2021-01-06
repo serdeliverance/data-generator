@@ -8,5 +8,4 @@ case class Transaction(
     installments: Int,
     cardType: String,
     userId: Long,
-    mail: Option[String],
-    state: String)
+    status: String)

@@ -43,7 +43,7 @@ object DataGenerator extends App {
     val min        = 0
     val random     = new Random()
     val nextRandom = min + random.nextInt((max - min) + 1)
-    BigDecimal(nextRandom)
+    BigDecimal(nextRandom.toString + ".0")
   }
 
   // TODO refactor to a method with another name to be reused in amount
@@ -67,7 +67,7 @@ object DataGenerator extends App {
     if (randomNumber < 5) "VISA" else "MASTERCARD"
   }
 
-  def state(): String = {
+  def status(): String = {
     val min          = 0
     val random       = new Random()
     val randomNumber = min + random.nextInt((10 - min) + 1)
@@ -78,15 +78,14 @@ object DataGenerator extends App {
     Source(1 to records)
       .map(_ =>
         Transaction(
-          None,
-          amount(5000),
-          transactionFaker.finance().creditCard().substring(0, 4),
-          LocalDateTime.now().toString,
-          installments(12),
-          creditCard(),
-          userId(200),
-          Some(transactionFaker.internet().emailAddress()),
-          state()
+          id = None,
+          amount = amount(5000),
+          cardLast4Digits = transactionFaker.finance().creditCard().substring(0, 4),
+          dateTime = LocalDateTime.now().toString,
+          installments = installments(12),
+          cardType = creditCard(),
+          userId = userId(200),
+          status = status()
       ))
       .runWith(Slick.sink(tx => transactionTable += tx))
 
