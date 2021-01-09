@@ -1,4 +1,4 @@
-package com.serdeliverance.infra
+package com.serdeliverance.infra.tables
 
 import com.serdeliverance.domain.Transaction
 import slick.jdbc.PostgresProfile.api._
