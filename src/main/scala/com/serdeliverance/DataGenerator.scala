@@ -1,17 +1,13 @@
 package com.serdeliverance
 
-import akka.Done
 import akka.actor.ActorSystem
-import akka.stream.alpakka.slick.javadsl.SlickSession
-import akka.stream.alpakka.slick.scaladsl.Slick
-import akka.stream.scaladsl.Source
+import akka.stream.alpakka.slick.scaladsl.SlickSession
 import com.github.javafaker.Faker
-import com.serdeliverance.domain.User
-import com.serdeliverance.infra.UserTable.userTable
+import com.serdeliverance.infra.generator.TransactionGenerator.generateTransactions
+import com.serdeliverance.infra.generator.UserGenerator.generateUsers
 import com.typesafe.config.ConfigFactory
-import slick.jdbc.PostgresProfile.api._
 
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.ExecutionContext
 
 object DataGenerator extends App {
 
@@ -25,16 +21,13 @@ object DataGenerator extends App {
   val userRecords        = config.getInt("generator.number-of-users")
   val transactionRecords = config.getInt("generator.number-of-transactions")
 
-  val faker = new Faker()
-
-  private def generateUsers(records: Int): Future[Done] =
-    Source(1 to records)
-      .map(_ => User(None, faker.name().username(), faker.internet().password(), faker.internet().emailAddress()))
-      .runWith(Slick.sink(user => userTable += user))
+  val userFaker        = new Faker()
+  val transactionFaker = new Faker()
 
   // generating data
   val result = for {
     _ <- generateUsers(userRecords)
+    - <- generateTransactions(transactionRecords)
   } yield ()
 
   result.onComplete { _ =>

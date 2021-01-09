@@ -3,7 +3,6 @@ version: '3.7'
 services:
   dg-postgres:
     image: postgres:latest
-    container_name: fpg-postgres
     environment:
       - "TZ=Europe/Amsterdam"
       - "POSTGRES_USER=root"
