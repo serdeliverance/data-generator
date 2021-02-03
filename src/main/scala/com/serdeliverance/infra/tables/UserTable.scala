@@ -1,6 +1,6 @@
 package com.serdeliverance.infra.tables
 
-import com.serdeliverance.domain.User
+import com.serdeliverance.domain.user.User
 import slick.jdbc.PostgresProfile.api._
 
 class UserTable(tag: Tag) extends Table[User](tag, "user") {

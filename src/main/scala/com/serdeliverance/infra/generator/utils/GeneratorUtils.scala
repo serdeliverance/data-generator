@@ -1,4 +1,4 @@
-package com.serdeliverance.infra.generator
+package com.serdeliverance.infra.generator.utils
 
 import scala.util.Random
 

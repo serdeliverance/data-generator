@@ -1,12 +1,12 @@
-package com.serdeliverance.infra.generator
+package com.serdeliverance.infra.generator.entities
 
 import akka.Done
 import akka.actor.ActorSystem
 import akka.stream.alpakka.slick.scaladsl.{Slick, SlickSession}
 import akka.stream.scaladsl.Source
 import com.github.javafaker.Faker
-import com.serdeliverance.DataGenerator.userFaker
-import com.serdeliverance.domain.User
+import com.serdeliverance.domain.user.User
+import com.serdeliverance.infra.generator.UserTransactionGenerator.userFaker
 import com.serdeliverance.infra.tables.UserTable.userTable
 import slick.jdbc.PostgresProfile.api._
 

@@ -1,4 +1,4 @@
-package com.serdeliverance.infra.generator
+package com.serdeliverance.infra.generator.entities
 
 import java.time.LocalDateTime
 
@@ -7,7 +7,8 @@ import akka.actor.ActorSystem
 import akka.stream.alpakka.slick.scaladsl.{Slick, SlickSession}
 import akka.stream.scaladsl.Source
 import com.github.javafaker.Faker
-import com.serdeliverance.domain.Transaction
+import com.serdeliverance.domain.transaction.Transaction
+import com.serdeliverance.infra.generator.utils.GeneratorUtils
 import com.serdeliverance.infra.tables.TransactionTable.transactionTable
 import slick.jdbc.PostgresProfile.api._
 

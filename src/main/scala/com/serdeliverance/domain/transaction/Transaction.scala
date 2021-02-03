@@ -1,4 +1,4 @@
-package com.serdeliverance.domain
+package com.serdeliverance.domain.transaction
 
 case class Transaction(
     id: Option[Long],

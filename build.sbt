@@ -40,4 +40,4 @@ scalacOptions ++= Seq(
   "-unchecked"
 )
 
-mainClass in (Compile, run) := Option("com.serdeliverance.DataGenerator")
+mainClass in (Compile, run) := Option("com.serdeliverance.infra.generator.UserTransactionGenerator")

@@ -1,6 +1,6 @@
 package com.serdeliverance.infra.tables
 
-import com.serdeliverance.domain.Transaction
+import com.serdeliverance.domain.transaction.Transaction
 import slick.jdbc.PostgresProfile.api._
 
 class TransactionTable(tag: Tag) extends Table[Transaction](tag, "transaction") {
