@@ -3,8 +3,8 @@
 Project for generating dummy data. It uses Akka Streams + Alpakka + Faker + Postgres + Docker.
 
 This project contains different generators for different data models:
-1. [User Transaction](#User Transaction data model)
-2. [Cryptocurrencies](#Cryptocurrencies data model)
+1. User Transaction
+2. Cryptocurrencies
 
 ## User Transaction data model
 
